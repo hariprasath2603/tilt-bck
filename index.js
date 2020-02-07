@@ -7,7 +7,10 @@ let {Menu , Order } = schema;
 const app = express();
 // using middle ware for parse and cross request
 app.use(bodyPars());
-app.use(cors());
+// only allowing cros fom my site
+app.use( cors({
+        origin: "https://elegant-heyrovsky-d4b552.netlify.com/"
+    }));
 
 
 app.get("/menu",(req,res)=>{
